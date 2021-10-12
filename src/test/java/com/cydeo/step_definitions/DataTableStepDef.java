@@ -1,11 +1,13 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.WLoginPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.util.List;
+import java.util.Map;
 
 public class DataTableStepDef {
      @Given("I have a {string}")
@@ -36,5 +38,36 @@ public class DataTableStepDef {
 
         System.out.println("nameLst = " + nameLst);
 
+    }
+
+    @Then("They come to me with below noise")
+    public void they_come_to_me_with_below_noise(Map<String,String> animalNoise) {
+
+        System.out.println("animalNoise = " + animalNoise);
+    }
+
+
+/*
+    @Then("They come to me with below noise")
+    public void they_come_to_me_with_below_noise(List<List<String>> animalRowLst) {
+        System.out.println("animalRowLst = " + animalRowLst);
+    }
+
+ */
+
+    @When("we provide below credentials")
+    public void we_provide_below_credentials(Map<String,String> credentialMap) {
+
+        WLoginPage login=new WLoginPage();
+        login.login(credentialMap.get("username"),credentialMap.get("password"));
+        
+    }
+
+
+    @Given("this is the product reference")
+    public void thisIsTheProductReference(List<Map<String,Object>> productMapList) {
+        for (Map<String, Object> eachRowMap : productMapList) {
+            System.out.println("eachRowMap = " + eachRowMap);
+        }
     }
 }

@@ -30,3 +30,21 @@ Feature: Demonstrating the data table feature of cucumber
       | dog    | Woof |
       | turtle | Hiss |
       | zebra  | Bro  |
+
+    @ui
+  Scenario: Login to weborder app by providing username password in 2 column table
+
+    Given we are at web order login page
+    When we provide below credentials
+      | username | Tester |
+      | password | test   |
+    Then we should see all order page
+
+  Scenario: Representing table with header and more than 2 columns with list of map
+    Given this is the product reference
+      | Product     | Price | Discount |
+      | MyMoney     | 100   | 0.08     |
+      | FamilyAlbum | 80    | 0.15     |
+      | ScreenSaver | 20    | 0.1      |
+
+

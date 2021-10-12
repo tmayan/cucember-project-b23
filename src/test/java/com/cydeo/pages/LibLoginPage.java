@@ -22,14 +22,18 @@ public class LibLoginPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
     public void goTo(){
-       Driver.getDriver().get(ConfigReader.read("library2.ui.url"));
-    }
-    public void login(){
-     userNameBox.sendKeys(ConfigReader.read("library_userName"));
-     passwordBox.sendKeys(ConfigReader.read("library_password"));
-     LoginButton.click();
+//        Driver.getDriver().get("https://library2.cybertekschool.com/login.html");
+        Driver.getDriver().get(ConfigReader.read( "library2.ui.url" ) );
     }
 
+     public void login(String username, String password) {
 
-}
+         userNameBox.sendKeys(username);
+         passwordBox.sendKeys(password);
+         LoginButton.click();
+
+     }
+
+    }
