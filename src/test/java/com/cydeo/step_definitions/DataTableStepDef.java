@@ -30,4 +30,11 @@ public class DataTableStepDef {
 
 
     }
+
+    @When("I call their names with below names")
+    public void iCallTheirNamesWithBelowNames(List<String> nameLst) {
+
+        System.out.println("nameLst = " + nameLst);
+
+    }
 }
