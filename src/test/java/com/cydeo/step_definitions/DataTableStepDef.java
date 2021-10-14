@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.WLoginPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -65,8 +66,44 @@ public class DataTableStepDef {
 
     @Given("this is the product reference")
     public void thisIsTheProductReference(List<Map<String,Object>> productMapList) {
-        for (Map<String, Object> eachRowMap : productMapList) {
+       /* for (Map<String, Object> eachRowMap : productMapList) {
             System.out.println("eachRowMap = " + eachRowMap);
         }
+
+        */
+        /**
+         * | Product     | Price | Discount |
+         * | MyMoney     | 100   | 0.08     |
+         * | FamilyAlbum | 80    | 0.15     |
+         * | ScreenSaver | 20    | 0.1      |
+         */
+
+        Map<String, Object> thirdRowMap = productMapList.get(2);
+        // the key is column name , the value is cell value
+        System.out.println("thirdRowMap = " + thirdRowMap);
+        // print Discount column of 3rd row
+        System.out.println("thirdRowMap.get(\"Discount\") = "
+                + thirdRowMap.get("Discount"));
+
+        //give me the price value of 2nd row
+
+        System.out.println("productMapList.get(1).get(\"Price\") = "
+                + productMapList.get(1).get("Price"));
+
+    }
+
+    @And("I have another product reference without header")
+    public void headlessTable(List<List<String>> productInfoList) {
+        System.out.println(productInfoList);
+
+        //get me entire 3rd row
+       List<String> thirdRow=productInfoList.get(2);
+        System.out.println("thirdRow = " + thirdRow);
+
+        //get price of 3rd column
+        System.out.println("thirdRow price is  = " + thirdRow.get(1));
+
+        //get the discount column of first row
+        System.out.println("first row discount is = " + productInfoList.get(0).get(2));
     }
 }

@@ -42,7 +42,14 @@ Feature: Demonstrating the data table feature of cucumber
 
   Scenario: Representing table with header and more than 2 columns with list of map
     Given this is the product reference
+
       | Product     | Price | Discount |
+      | MyMoney     | 100   | 0.08     |
+      | FamilyAlbum | 80    | 0.15     |
+      | ScreenSaver | 20    | 0.1      |
+
+    And I have another product reference without header
+
       | MyMoney     | 100   | 0.08     |
       | FamilyAlbum | 80    | 0.15     |
       | ScreenSaver | 20    | 0.1      |

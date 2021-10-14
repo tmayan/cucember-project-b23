@@ -1,5 +1,6 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.WAllProductPage;
 import com.cydeo.utility.Driver;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,26 +25,48 @@ public class WebOrderTabNameStepDef {
     }
 
     @Then("we should see table with below content")
-    public void weShouldSeeTableWithBelowContent(List<Map<String, Object>> expectedResult) {
-        List<String> expectedProductList=new ArrayList<>();
-        List<String>expectedDiscountPrice=new ArrayList<>();
-        for (Map<String, Object> eachRow : expectedResult) {
-            expectedProductList.add(eachRow.get("Product").toString());
-            expectedDiscountPrice.add(eachRow.get("Price").toString());
-        }
-       // System.out.println(expectedProductList);
-       // System.out.println(expectedDiscountPrice);
-        List<String>productList=new ArrayList<>();
-        for (WebElement eachProductName : Driver.getDriver().findElements(By.xpath("//select[@id='ctl00_MainContent_fmwOrder_ddlProduct']//option"))) {
-            productList.add(eachProductName.getText());
-        }
-       
-        assertEquals(expectedProductList,productList);
+    @Then("we should see table with below content")
+    public void weShouldSeeTableWithBelowContent(List<Map<String,String>> productMapLst) {
+
+        System.out.println("productMapLst = " + productMapLst);
+
+        // how to get first map
+        Map<String,String> expectedFirstRowMap = productMapLst.get(0) ;
+
+        WAllProductPage allProductPage = new WAllProductPage();
+
+        System.out.println("allProductPage.getRowMapFromWebTable() = "
+                + allProductPage.getRowFromWebTable());
+
+        Map<String,String> actualFirstRowMap = allProductPage.getRowFromWebTable() ;
+
+        // assert two maps are equal
+        assertEquals(  expectedFirstRowMap , actualFirstRowMap );
+
+
+        // assert the first row match from datatable and web table
+
+
+
+
+//        // get expected headers :
+//        Set<String> headerSet = productMapLst.get(0).keySet() ;
+//        System.out.println("headerSet = " + headerSet);
+//
+//        // get actual header :
+//        List<String> actualHeaders = allProductPage.getAllHeaderText();
+//        System.out.println("actualHeaders = " + actualHeaders);
+//
+//        // check the size is the same
+//        assertEquals(headerSet.size() , actualHeaders.size() );
+//
+//        // list to set equality check will not work
+//        // so we need to turn the set into list
+//        List<String> expectedHeaders = new ArrayList<>( headerSet );
+//        assertEquals(expectedHeaders, actualHeaders);
 
 
     }
-
-
-
     }
+
 
