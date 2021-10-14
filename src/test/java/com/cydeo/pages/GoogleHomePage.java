@@ -1,5 +1,6 @@
 package com.cydeo.pages;
 
+import com.cydeo.utility.BrowserUtil;
 import com.cydeo.utility.ConfigReader;
 import com.cydeo.utility.Driver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +36,8 @@ public class GoogleHomePage {
     public void searchKeyword( String keyword  ){
 
         this.searchBox.sendKeys(  keyword  );
-        this.searchBtn.click();
+        BrowserUtil.waitFor(1);
+        this.searchBtn.submit();
 
     }
 

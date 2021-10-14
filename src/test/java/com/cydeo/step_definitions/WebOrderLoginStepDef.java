@@ -1,14 +1,13 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.WLoginPage;
-import com.cydeo.utility.ConfigReader;
 import com.cydeo.utility.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class WebOrderLoginStepDef {
     // putting this at class level, so it can be accessible in all methods

@@ -15,7 +15,7 @@ public class WebOrderUtil {
     public static void openWebOrderApp(){
 
        // Driver.getDriver().get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx") ;
-        com.cydeo.utility.Driver.getDriver().get(com.cydeo.utility.ConfigReader.read("weborder_url"));
+        Driver.getDriver().get(ConfigReader.read("weborder_url"));
     }
 
     /**
@@ -24,11 +24,11 @@ public class WebOrderUtil {
     public static void login(){
 
         // enter username
-        com.cydeo.utility.Driver.getDriver().findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
+        Driver.getDriver().findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
         // enter password
-        com.cydeo.utility.Driver.getDriver().findElement(By.id("ctl00_MainContent_password")) .sendKeys("test");
+        Driver.getDriver().findElement(By.id("ctl00_MainContent_password")) .sendKeys("test");
         // click login
-        com.cydeo.utility.Driver.getDriver().findElement(By.id("ctl00_MainContent_login_button")).click();
+        Driver.getDriver().findElement(By.id("ctl00_MainContent_login_button")).click();
 
     }
 
@@ -42,11 +42,11 @@ public class WebOrderUtil {
     public static void login(String username, String password){
 
         // enter username
-        com.cydeo.utility.Driver.getDriver().findElement(By.id("ctl00_MainContent_username")).sendKeys(username);
+        Driver.getDriver().findElement(By.id("ctl00_MainContent_username")).sendKeys(username);
         // enter password
-        com.cydeo.utility.Driver.getDriver().findElement(By.id("ctl00_MainContent_password")) .sendKeys(password);
+        Driver.getDriver().findElement(By.id("ctl00_MainContent_password")) .sendKeys(password);
         // click login
-        com.cydeo.utility.Driver.getDriver().findElement(By.id("ctl00_MainContent_login_button")).click();
+        Driver.getDriver().findElement(By.id("ctl00_MainContent_login_button")).click();
 
     }
 

@@ -1,7 +1,11 @@
 package com.cydeo.step_definitions;
+
 import com.cydeo.pages.GoogleHomePage;
 import com.cydeo.utility.Driver;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import static org.junit.Assert.assertTrue;
 
 public class GoogleSearchStepDef {

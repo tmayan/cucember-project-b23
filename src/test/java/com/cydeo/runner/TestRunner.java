@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
                      glue = "com/cydeo/step_definitions",
                      plugin = {"pretty", "html:target/cucumber.html"  } ,
                       dryRun = false
-                     ,tags = "@library_login"
+                     ,tags = "@webOrder"
                        )
 public class TestRunner {
 }
